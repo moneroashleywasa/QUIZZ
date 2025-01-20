@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .signup-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color:plum;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        
+        .form-group input {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .form-group input:focus {
+            border-color: skyblue;
+            outline: none;
+        }
+        .strength-meter {
+            height: 5px;
+            background: white;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: all 0.3s;
+        }
+        .strength-meter[data-strength="weak"] {
+            width: 33%;
+            background: red;
+        }
+        .strength-meter[data-strength="medium"] {
+            width: 66%;
+            background: orange;
+        }
+        .strength-meter[data-strength="strong"] {
+            width: 100%;
+            background: green;
+        }
+        .submit-btn {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            padding: 10px;
+            background: #007bff;
+            margin: 0%;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-group">
+            <form class="signup-form" id="signup-form">
+                <h2>Welcome to Funizz</h2>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="required">
+      
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="suggest a strong password">
+                <div class="strength-meter" id="strength-meter"></div>
+            
+                <label for="username">Nickname/Username:</label>
+                <input type="text" id="username" name="username">
+            
+                <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+    </div>
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const strengthMeter = document.getElementById('strength-meter');
+
+        passwordInput.addEventListener('input', () => {
+            const value = passwordInput.value;
+            let strength = 'weak';
+            if (value.length >= 8 && /[A-Z]/.test(value) && /[0-9]/.test(value)) {
+                strength = 'strong';
+            } else if (value.length >= 5) {
+                strength = 'medium';
+            }
+            strengthMeter.setAttribute('data-strength', strength);
+
+            console.log('Sign-Up Data', {email, username, password});
+
+            //Simulate saving to database
+            alert('Sign-Up Successful');
+        });
+    </script>
+</body>
+</html>
+
