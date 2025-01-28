@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Friends to Take the Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7f9fc, #eef2f6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row; /* Keep the links horizontal */
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px; /* Add space below the container for the links */
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp {
+            background-color: #25D366;
+        }
+
+        .gmail {
+            background-color: #EA4335;
+        }
+
+        .facebook {
+            background-color: #4267B2;
+        }
+
+        .take-quiz {
+            background-color: #007bff;
+            color: white;
+            width: 250px; /* Set a fixed width */
+            text-align: center; /* Ensure text is centered */
+        }
+
+        .button span {
+            margin-left: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invite Friends to Take the Quiz!</h1>
+    <div class="buttons">
+        <a href="https://wa.me/?text=Check%20out%20this%20amazing%20quiz!" class="button whatsapp" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" class="icon">
+            <span>WhatsApp</span>
+        </a>
+        <a href="mailto:?subject=Join%20the%20Quiz&body=Take%20this%20quiz%20and%20test%20your%20knowledge!" class="button gmail" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/gmail.png" alt="Gmail" class="icon">
+            <span>Gmail</span>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourquizapp.com" class="button facebook" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" class="icon">
+            <span>Facebook</span>
+        </a>
+    </div>
+    <a href="#" class="button take-quiz">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/checklist.png" alt="Take Quiz" class="icon">
+        <span>Take Quiz</span>
+    </a>
+
+    <footer>
+        Powered by <a href="#">QuizApp</a>
+    </footer>
+</body>
+</html>
