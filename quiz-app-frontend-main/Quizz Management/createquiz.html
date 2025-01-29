@@ -14,12 +14,11 @@
             padding: 0;
         }
         .container {
-            background-color: white;
+            background-color: rgba(99, 207, 10, 0.616);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
+            box-shadow: 0 0 10px rgba(72, 190, 3, 0.256);
+            max-width: 900px;
             margin: 50px auto;
         }
         h1 {
@@ -55,22 +54,31 @@
         .form-group button:hover {
             background-color: #218838;
         }
-        .confirmation {
+        #confirmationMessage {
             display: none;
             text-align: center;
             margin-top: 20px;
             font-size: 18px;
             color: #28a745;
+            animation: fadeOut 3s forwards
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
         .question {
-            background-color: #f9f9f9;
+            background-color: rgb(235, 134, 235);
             padding: 15px;
-            border: 1px solid #ddd;
             border-radius: 4px;
             margin-bottom: 10px;
         }
         .question h3 {
             margin-top: 0;
+            text-align: center;    
         }
         .question .form-group {
             margin-bottom: 10px;
@@ -79,9 +87,33 @@
             width: auto;
             margin-right: 10px;
         }
-        /* .form-check-label {
-            margin-left: auto;
-                } */
+        #questionsSection {
+            width: 100%;
+            background-color: rgb(235, 134, 235);
+            padding: 10px;
+            border-radius: 20px;
+        }
+        #questionsSection h3 {
+            text-align: center;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #submit-btn2 {
+            margin: 0 auto;
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -121,12 +153,16 @@
             </div>
             <button type="button" class="btn btn-primary mt-3" onclick="addQuestion()">Add Question</button>
             <button type="submit" class="btn btn-success mt-3">Save Quiz</button>
+            <br><br>
+            <a href="http://">
+                <button id="submit-btn2" class="submit-btn">Submit Quiz</button>
+            </a>
         </form>
         <div id="confirmationMessage" class="alert alert-success mt-3" style="display: none;">Quiz saved successfully!</div>
     </div>
 
     <template id="questionTemplate">
-        <div class="question my-4 p-3 border rounded">
+        <div class="question">
             <div class="form-group">
                 <label for="questionText">Question</label>
                 <input type="text" class="form-control questionText" placeholder="Enter question" required>
@@ -146,7 +182,6 @@
             <button type="button" class="btn btn-danger" onclick="deleteQuestion(this)">Delete Question</button>
         </div>
     </template>
-
     <script>
         function addQuestion() {
             const questionTemplate = document.getElementById('questionTemplate').content.cloneNode(true);
