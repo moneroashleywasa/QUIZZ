@@ -222,10 +222,18 @@
 
         function editQuestion(buttonElement) {
             const questionContainer = buttonElement.closest('.question');
-            const questionText = questionContainer.querySelector('.questionText').value;
-            const questionType = questionContainer.querySelector('.questionType').value;
+            const questionText = questionContainer.querySelector('.questionText');
+            const questionType = questionContainer.querySelector('.questionType');
+            const answerInputs = questionContainer.querySelectorAll(' .answerSection input');
+                                                                    
 
-            console.log('Edit Question:', { questionText, questionType });
+            const isEditable = questionText.readOnly;
+            
+            question.Text.readOnly= !isEditable;
+            questionType.disabled= !isEditable;
+            answerInputs.forEach(input => input.readOnly= !isEditable);
+
+            buttonElement.textContent = isEditable ? 'Save Question' : 'Edit Question';
         }
 
         function deleteQuestion(buttonElement) {
